@@ -65,8 +65,8 @@ if ($message){
     echo $message;
 }
 ?>
-<form method="post" action="edit_records.php?del=<?php echo $item_id?>">
-    <h1>Edit User Information</h1>
+<form method="post" action="editpurchase_records.php?del=<?php echo $item_id?>">
+    <h1>Edit Purchase Information</h1>
     <label>Name:</label><input type="text" name="p_name" placeholder="Name" value="<?php echo $row['p_name']; ?>"><br/><br/>
     <label>Quantity:</label><input type="text" name="p_quantity" placeholder="Quantity" value="<?php echo $row['p_quantity']; ?>"><br/><br/>
     <label>Cost:</label><input type="text" name="p_cost" placeholder="Cost" value="<?php echo $row['p_cost']; ?>"><br/><br/>

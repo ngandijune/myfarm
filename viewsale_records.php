@@ -55,7 +55,7 @@
             <!----//End-top-nav-script---->
         </div>
         <div>
-            <h3 style="color: #f9f9f9;">View Purchase Records</h3>
+            <h3 style="color: #f9f9f9;">View Sale Records</h3>
         </div>
         <div class="clearfix"> </div>
     </div>
@@ -64,7 +64,7 @@
 
     <div class="table-scrol">
 
-        <h1 align="center">View Purchase Records</h1>
+        <h1 align="center">View Sale Records</h1>
 
         <div class="table-responsive"><!--this is used for responsive display in mobile and other devices-->
 
@@ -76,9 +76,10 @@
                     <th>item_id</th>
                     <th>Name</th>
                     <th>Quantity</th>
+<!--                    <th>Cost</th>-->
+
                     <th>Cost</th>
                     <th>Date</th>
-
                     <th>Delete User</th>
                     <th>Edit User</th>
 
@@ -87,17 +88,19 @@
 
                 <?php
                 include("db.php");
-                $view_users_query="select * from purchasesheet";//select query for viewing users.
+                $view_users_query="select * from salesheet";//select query for viewing users.
                 $run=mysqli_query($mysqli,$view_users_query);//here run the sql query.
                 $sum=0;
                 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.
                 {
                     $sitem_id=$row[0];
-                    $p_name=$row[1];
-                    $p_quantity=$row[2];
-                    $p_cost=$row[4];
-                    $p_date=$row[3];
-                    $sum +=(int)$p_cost;
+                    $s_name=$row[1];
+                    $s_quantity=$row[2];
+
+                    $s_date=$row[3];
+                    $s_cost=$row[4];
+                    $sum +=(int)$s_cost;
+
 
 
 
@@ -107,16 +110,17 @@
                     <tr>
                         <!--here showing results in the table -->
                         <td><?php echo $sitem_id;  ?></td>
-                        <td><?php echo $p_name;  ?></td>
-                        <td><?php echo $p_quantity;  ?></td>
-                        <td><?php echo $p_cost;  ?></td>
-                        <td><?php echo $p_date;  ?></td>
+                        <td><?php echo $s_name;  ?></td>
+                        <td><?php echo $s_quantity;  ?></td>
+                        <td><?php echo $s_cost;  ?></td>
+                        <td><?php echo $s_date;  ?></td>
 
-                        <td><a href="deletepurchase_records.php?del=<?php echo $sitem_id ?>"><button class="btn btn-danger">Delete</button></a></td> <!--btn btn-danger is a bootstrap button to show danger-->
-                        <td><a href="editpurchase_records.php?del=<?php echo $sitem_id ?>"><button class="btn btn-primary">Edit</button></a></td> <!--btn btn-danger is a bootstrap button to show danger-->
+                        <td><a href="deletesale_records.php?del=<?php echo $sitem_id ?>"><button class="btn btn-danger">Delete</button></a></td> <!--btn btn-danger is a bootstrap button to show danger-->
+                        <td><a href="editsale_records.php?del=<?php echo $sitem_id ?>"><button class="btn btn-primary">Edit</button></a></td> <!--btn btn-danger is a bootstrap button to show danger-->
                     </tr>
 
-                <?php } ?>
+                <?php }
+                ?>
 
             </table>
             <?php
@@ -125,6 +129,7 @@
             ?>
         </div>
     </div>
+
     <a href="welcome.php" class="btn btn-primary">Go Back</a>
 
     <script>
