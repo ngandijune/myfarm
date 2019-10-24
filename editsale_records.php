@@ -1,5 +1,51 @@
 <html>
 
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+    .form-inline {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .form-inline label {
+        margin: 5px 10px 5px 0;
+    }
+
+    .form-inline input {
+        vertical-align: middle;
+        margin: 5px 10px 5px 0;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+    .form-inline button {
+        padding: 10px 20px;
+        background-color: #1B242F;
+        border: 1px solid #ddd;
+        color: white;
+        cursor: pointer;
+    }
+
+    .form-inline button:hover {
+        background-color: #0C94CE;
+    }
+
+    @media (max-width: 800px) {
+        .form-inline input {
+            margin: 10px 0;
+        }
+
+        .form-inline {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+</style>
+
 
 <head lang="en">
     <meta charset="UTF-8">
@@ -65,8 +111,9 @@ if ($message){
     echo $message;
 }
 ?>
-<form method="post" action="editsale_records.php?del=<?php echo $sitem_id?>">
-    <h1>Edit Sale Information</h1>
+<h1 align="center">Edit Sale Information</h1>
+<form method="post" action="editsale_records.php?del=<?php echo $sitem_id?>" class="form-inline">
+<!--    <h1>Edit Sale Information</h1>-->
     <label>Name:</label><input type="text" name="s_name" placeholder="Name" value="<?php echo $row['s_name']; ?>"><br/><br/>
     <label>Quantity:</label><input type="text" name="s_quantity" placeholder="Quantity" value="<?php echo $row['s_quantity']; ?>"><br/><br/>
     <label>Cost:</label><input type="text" name="s_cost" placeholder="Cost" value="<?php echo $row['s_cost']; ?>"><br/><br/>

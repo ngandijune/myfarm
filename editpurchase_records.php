@@ -1,5 +1,50 @@
 <html>
 
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+    .form-inline {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .form-inline label {
+        margin: 5px 10px 5px 0;
+    }
+
+    .form-inline input {
+        vertical-align: middle;
+        margin: 5px 10px 5px 0;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+    .form-inline button {
+        padding: 10px 20px;
+        background-color: #1B242F;
+        border: 1px solid #ddd;
+        color: white;
+        cursor: pointer;
+    }
+
+    .form-inline button:hover {
+        background-color: #0C94CE;
+    }
+
+    @media (max-width: 800px) {
+        .form-inline input {
+            margin: 10px 0;
+        }
+
+        .form-inline {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+</style>
 
 <head lang="en">
     <meta charset="UTF-8">
@@ -65,16 +110,18 @@ if ($message){
     echo $message;
 }
 ?>
-<form method="post" action="editpurchase_records.php?del=<?php echo $item_id?>">
-    <h1>Edit Purchase Information</h1>
-    <label>Name:</label><input type="text" name="p_name" placeholder="Name" value="<?php echo $row['p_name']; ?>"><br/><br/>
+<h1 align="center">Edit Purchase Information</h1>
+<form method="post" action="editpurchase_records.php?del=<?php echo $item_id?>" class="form-inline">
+<!--    <h1>Edit Purchase Information</h1><br>-->
+<!--    <h1 align="center">Edit Purchase Information</h1>-->
+   <br> <label>Name:</label><input type="text" name="p_name" placeholder="Name" value="<?php echo $row['p_name']; ?>"><br/><br/>
     <label>Quantity:</label><input type="text" name="p_quantity" placeholder="Quantity" value="<?php echo $row['p_quantity']; ?>"><br/><br/>
     <label>Cost:</label><input type="text" name="p_cost" placeholder="Cost" value="<?php echo $row['p_cost']; ?>"><br/><br/>
     <button type="submit" class="btn btn-primary" name="btn-update" id="btn-update"><strong>Update</strong></button>
     <a href="viewpurchase_records.php"><button type="button" button class="btn btn-danger" value="button">Cancel</button></a>
 </form>
 <!-- Alert for Updating -->
-<a href="viewpurchase_records.php" class="btn btn-primary">Go Back</a>
+<a href="insertpurchase_records.php" class="btn btn-primary">Go Back</a>
 
 <script>
     function goBack() {

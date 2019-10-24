@@ -66,6 +66,7 @@
 
         <h1 align="center">View Purchase Records</h1>
 
+
         <div class="table-responsive"><!--this is used for responsive display in mobile and other devices-->
 
 

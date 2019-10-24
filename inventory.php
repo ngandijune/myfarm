@@ -70,8 +70,8 @@ session_start();
                     <?php
                 }
                 ?>
-                <li><a href="viewpurchase_records.php">View Purchase Records</a></li>
-                <li><a href="viewsale_records.php">View Sale Records</a></li>
+<!--                <li><a href="viewpurchase_records.php">View Purchase Records</a></li>-->
+<!--                <li><a href="viewsale_records.php">View Sale Records</a></li>-->
 <!--                <li><a href="colourharvester/web/index.php">Visuals</a></li>-->
             </ul>
             <!----start-top-nav-script---->
