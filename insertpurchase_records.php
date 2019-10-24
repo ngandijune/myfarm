@@ -24,14 +24,14 @@
 
     .form-inline button {
         padding: 10px 20px;
-        background-color: dodgerblue;
+        background-color: #1B242F;
         border: 1px solid #ddd;
         color: white;
         cursor: pointer;
     }
 
     .form-inline button:hover {
-        background-color: royalblue;
+        background-color: #0C94CE;
     }
 
     @media (max-width: 800px) {
@@ -96,8 +96,11 @@ $status = "";
 
 <!DOCTYPE html>
 <html>
+<!--<div class="navgation">-->
 <head>
+
    <meta charset="utf-8">
+
     <title>Insert New purchase Record</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
