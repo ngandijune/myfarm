@@ -367,9 +367,11 @@ if (isset($_SESSION["dirtyFileName"]) && !isset($_POST['beginCycle'])) {
 			//document.getElementById('textual-output-CD').innerHTML += "Time Taken = " + elapsedTimeForGetColor + "ms <br />";
 			document.getElementById('textual-output-CD').innerHTML += "rgb(" + ascendantColour[0] + ", " + ascendantColour[1] + ", " + ascendantColour[2] + ")";
 			document.getElementById('color-box-actual').style.backgroundColor = "rgb(" + ascendantColour[0] + ", " + ascendantColour[1] + ", " + ascendantColour[2] + ")";
-			document.getElementById('colour-box-desired').style.backgroundColor = "rgb(145,192,57)";
-			document.getElementById('colour-box-desired-text').innerHTML += "rgb(145,192,57)<br>Forest-green with a mixture of 45-55% lemon-yellow";
-										 
+			// document.getElementById('colour-box-desired').style.backgroundColor = "rgb(145,192,57)";
+			document.getElementById('colour-box-desired').style.backgroundColor = "rgb(106,38,39)";
+			// document.getElementById('colour-box-desired-text').innerHTML += "rgb(145,192,57)<br>Forest-green with a mixture of 45-55% lemon-yellow";
+			document.getElementById('colour-box-desired-text').innerHTML += "rgb(106,38,39)<br>Forest-green with a mixture of 45-55% lemon-yellow";
+
 			window.red = ascendantColour[0];
 			window.green = ascendantColour[1];
 			window.blue = ascendantColour[2];
@@ -389,21 +391,25 @@ if (isset($_SESSION["dirtyFileName"]) && !isset($_POST['beginCycle'])) {
 		
 		//100% - [ (Difference between the new colours and a perfect yellow)/(Difference between a perfect yellow and a perfect blue -> a 100% percent difference because they are opposites) ] * 100
 		
-		pureDegreeOfPerfection = (Colordiff.compare({r:145, g:192, b:57}, {r: ascendantColour[0], g: ascendantColour[1], b: ascendantColour[2]}, 'rgb'));
-		
-		degreeOfPerfection = (Colordiff.compare({r:145, g:192, b:57}, 
+		// pureDegreeOfPerfection = (Colordiff.compare({r:145, g:192, b:57}, {r: ascendantColour[0], g: ascendantColour[1], b: ascendantColour[2]}, 'rgb'));
+		pureDegreeOfPerfection = (Colordiff.compare({r:106, g:38, b:39}, {r: ascendantColour[0], g: ascendantColour[1], b: ascendantColour[2]}, 'rgb'));
+
+		// degreeOfPerfection = (Colordiff.compare({r:145, g:192, b:57},
+		degreeOfPerfection = (Colordiff.compare({r:106, g:38, b:39},
 		//Change this value for each new colour
 		{r: ascendantColour[0], g: ascendantColour[1], b: ascendantColour[2]}, 'rgb')) 
 		//r:57, g:156, b:0
 		/ 
-		(Colordiff.compare({r:145, g:192, b:57}, {r: 110, g: 63, b: 198}, 'rgb'))*100;
-		
+		// (Colordiff.compare({r:145, g:192, b:57}, {r: 110, g: 63, b: 198}, 'rgb'))*100;
+		(Colordiff.compare({r:106, g:38, b:39}, {r: 110, g: 63, b: 198}, 'rgb'))*100;
+
 		degreeOfPerfection = 100 - degreeOfPerfection;
 		//alert(puredegreeOfPerfection);
-		document.getElementById('textual-output-CDI').innerHTML += pureDegreeOfPerfection.toFixed(2) + " units <br />";
+		//document.getElementById('textual-output-CDI').innerHTML += pureDegreeOfPerfection.toFixed(2) + " units <br />";
 		var daysAfterAnthesis = -422.745778695191 + (114.52711914906 * pureDegreeOfPerfection) + (-5.88691315552068 * (pureDegreeOfPerfection*pureDegreeOfPerfection)) + (0.0854111142950544 * (pureDegreeOfPerfection*pureDegreeOfPerfection*pureDegreeOfPerfection));
 		//var daysAfterAnthesis = (47.180519644008-(3.1015512369311*pureDegreeOfPerfection)+(0.052190624542893*(pureDegreeOfPerfection*pureDegreeOfPerfection))).toFixed(0);
-		
+		//var daysAfterAnthesis = pureDegreeOfPerfection;
+
 		document.getElementById('prediction-DAA').innerHTML += daysAfterAnthesis.toFixed(0);
 		document.getElementById('prediction-DAA').innerHTML += " day(s)";
 		document.getElementById('prediction-DAA').innerHTML += " (" + (daysAfterAnthesis/30).toFixed(0) + " month(s))";
@@ -415,7 +421,7 @@ if (isset($_SESSION["dirtyFileName"]) && !isset($_POST['beginCycle'])) {
 		}
 		else if (daysAfterAnthesis >= 31 && daysAfterAnthesis <= 120) {
 			colourIndex = "1";
-			document.getElementById('prescription').innerHTML += "It is not yet ready. Continue cultivating.";
+			document.getElementById('prescription').innerHTML += "Almost ready Continue cultivating.";
 		}
 		else if (daysAfterAnthesis >= 121 && daysAfterAnthesis <= 150) {
 			colourIndex = "2";

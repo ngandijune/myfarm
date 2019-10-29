@@ -140,12 +140,12 @@ session_start();
             </script>
             <!----//End-top-nav-script---->
         </div>
-        <div class="search2">
-            <form>
-                <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
-                <input type="submit" value="">
-            </form>
-        </div>
+<!--        <div class="search2">-->
+<!--            <form>-->
+<!--                <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>-->
+<!--                <input type="submit" value="">-->
+<!--            </form>-->
+<!--        </div>-->
         <div class="clearfix"> </div>
     </div>
 </div>
